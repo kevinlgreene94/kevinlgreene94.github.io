@@ -1,0 +1,60 @@
+/*
+Kevin Greene 10/30/2020
+*/
+@font-face {
+    font-family: 'grand_hotelregular';
+    src: url('../font/webfontkit-20201030-111240/grandhotel-regular-webfont.woff') format('woff'),
+         url('../font/webfontkit-20201030-111240/grandhotel-regular-webfont.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+
+}
+#outerwrapper{
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+body{
+    background-color: #B8D1EB;
+    color: #000000;
+    font-family: 'Times New Roman', Times, serif;
+}
+main{
+    background-color: #C5A98B;
+    padding: 10px;
+    float: none;
+}
+.floatleft{ 
+    float: left;
+    margin-right: 3%;
+}
+.floatright{
+    float: right;
+    margin-left: 3%;
+}
+.bullets{
+    list-style-type: none;
+}
+h1{
+    font-family:'Lobster', cursive, serif;
+    font-size: 3rem;
+}
+h2{
+    font-family:'grand_hotelregular', cursive, serif;
+    font-weight: normal;
+    font-style: italic;
+}
+main ul{
+    list-style-image: url(../images/tomato.png);
+}
+
+footer{
+    font-size: .75em;
+    text-align: center;
+    background-color: yellow;
+    padding: 10px 10px;
+    float: none;
+}
+.textdecorate{
+    text-decoration: none;
+}
