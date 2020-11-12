@@ -81,6 +81,7 @@ nav{
        height: auto;
        padding: 1ch;
        float: left;
+       margin-right: 20px;
 }
 
 nav>ul li{
