@@ -1,0 +1,89 @@
+.bar { background-color: #152420;
+        
+}
+main { 
+    background-image: url(../images/heroback.jpg);
+    background-repeat: no-repeat;
+    background-position-x: right;
+}
+
+nav ul li{
+    list-style-type: none;
+    display: inline-block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+========================================
+Phone
+==========================================
+*/
+@media only screen and (max-width: 641px){
+    nav ul li{
+        display: block;
+    }
+    h1{
+        display:none;
+    }
+    html{
+        background: linear-gradient(blue, white);
+        background-repeat: no-repeat;
+    }
+    main{
+        background:transparent;
+    }
+}
+/*
+=====================================
+Tablet
+=====================================
+*/
+
+
+
+@media only screen and (min-width: 642px){
+    h1{
+        
+        display: initial;
+    }
+    html{
+        background-color: white;
+    }
+}
+
+/*
+=======================================
+Monitor
+=======================================
+*/
+
+@media only screen and (min-width: 1024px){
+   
+}
