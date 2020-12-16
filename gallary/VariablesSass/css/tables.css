@@ -1,0 +1,21 @@
+.table {
+  font-size: 1.5rem;
+  text-align: left;
+  width: 100%;
+}
+
+.table caption {
+  font-size: 2.5rem;
+  text-align: left;
+  padding-bottom: 5px;
+}
+
+.table > thead > tr > th,
+.table > thead > tr td,
+.table > tbody > tr > th,
+.table > tbody > tr td,
+.table > tfoot > tr > th,
+.table > tfoot > tr td {
+  padding: 10px border;
+}
+/*# sourceMappingURL=tables.css.map */
