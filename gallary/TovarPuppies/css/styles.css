@@ -1,0 +1,163 @@
+/*Kevin Greene
+12/17/2020*/
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap");
+html {
+  cursor: url(../images/pawprintcursor.png), auto;
+}
+
+video {
+  margin-bottom: 10px;
+}
+
+.jumbotron {
+  background-image: radial-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)), url(../images/christmas.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 600px;
+  font-size: xx-large;
+  margin: 0;
+}
+
+.navbar-nav {
+  display: table;
+  width: 100%;
+  margin: 0;
+  color: #E4E1D0;
+}
+
+.navbar-navli {
+  float: none;
+  display: table-cell;
+  text-align: center;
+}
+
+.table {
+  color: #E4E1D0;
+  font-size: x-large;
+}
+
+.image {
+  -webkit-transition: -webkit-transform .1s;
+  transition: -webkit-transform .1s;
+  transition: transform .1s;
+  transition: transform .1s, -webkit-transform .1s;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+  border-radius: 15px;
+  z-index: -1;
+}
+
+.image:hover {
+  -webkit-transform: scale(2);
+          transform: scale(2);
+}
+
+.carousel-item > img {
+  border-radius: 15px;
+}
+
+.btn-theme {
+  color: #E4E1D0;
+  background-color: #71a17d;
+  border: 1px solid #E4E1D0;
+}
+
+.btn-theme:hover {
+  background-color: #E4E1D0;
+  color: #71a17d;
+  border: 1px solid #71a17d;
+}
+
+.btn-theme:active {
+  background-color: #E4E1D0;
+  color: #71a17d;
+  border: 1px solid #71a17d;
+}
+
+.btn-theme:visited {
+  background-color: #E4E1D0;
+  color: #71a17d;
+  border: 1px solid #71a17d;
+}
+
+/*Desktop*/
+@media only screen and (max-width: 641px) {
+  .jumbotron {
+    background-image: url(../images/Remi.png);
+    background-repeat: no-repeat;
+    height: 600px;
+    background-size: cover;
+    font-size: larger;
+  }
+  .navbar {
+    display: block;
+  }
+  video {
+    height: 426px;
+    width: 240px;
+  }
+  .table {
+    font-size: medium;
+  }
+  .image {
+    display: none;
+  }
+  .mobile-fix {
+    width: 15px;
+    height: auto;
+  }
+}
+
+body {
+  background-color: #71a17d;
+  font: "Nanum Gothic", sans-serif, serif;
+  color: #E4E1D0;
+  margin: 0;
+}
+
+nav {
+  background-color: #E4E1D0;
+  margin-top: 0;
+  width: 100%;
+}
+
+nav ul li {
+  font-size: larger;
+  list-style-type: none;
+  padding: 4px;
+}
+
+nav ul li a {
+  color: #71a17d;
+}
+
+nav ul li:hover {
+  background-color: #71a17d;
+}
+
+nav ul li:hover a {
+  color: #E4E1D0;
+}
+
+main {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5ch;
+}
+
+p {
+  font-size: larger;
+}
+
+p a {
+  color: #E4E1D0;
+}
+
+footer {
+  font-size: larger;
+  text-align: center;
+  padding: 15px;
+  margin-bottom: 0;
+}
+/*# sourceMappingURL=styles.css.map */

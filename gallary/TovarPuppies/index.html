@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<!--Kevin Greene
+    12/17/2020-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="Prettiest puppies in the Valley!">
+        <meta name="keywords" content="puppies, bulldogs, rottweilers, merle, brindle">
+        <meta name="author" content="Kevin Greene">
+        <meta name="viewport" content="width=device-width initial scale=1.0">
+        <title>Tovar Family Puppies</title>
+        <!--Bootstrap-->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        
+        <!--StyleSheet-->
+        <link rel="stylesheet" href="css/styles.css">
+        <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+
+    </head>
+    <body>
+        <header class="jumbotron jumbotron-fluid text-center mb-0 bg-paws">
+            <div class= "container">
+                <h1>Tovar Family Puppies</h1>
+            </div>
+        </header>
+
+            <!--Bootstrap Nav Bar-->
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <div class="container-fluid">
+
+        <!--Hamburger menu-->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" 
+        aria-label="Toggle navigation">
+  
+            <span class="navbar-toggler-icon"></span>
+  
+        </button>
+
+        <!--Navbar links-->
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a href="#home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="#puppies">Puppies</a>
+            </li>
+            <li class="nav-item">
+              <a href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+    </div>
+      </nav>
+
+        <main>
+            <section class="container" id="home">
+                <h2>Welcome to the Tovar Puppies Website</h2>
+                <p>Take a look around at the puppies we currently have waiting for a new home!</p>
+            
+                <video width="1024" height="576" controls>
+                    <source src="images/puppies.mp4" type="video/mp4" alt="puppy video">
+                        
+                </video>
+            </section>
+            <section class="container"  id="puppies">
+                <div class="mb-5 mt-5">
+                    <h2>Our puppies</h2>
+                    <p>In the Tovar family every puppy is special. We breed Rottweilers and Bulldogs currently with one special merle boy still waiting 
+                        for a home and a new litter of Rotties on the way in March! Visit our <a href="#">puppies</a> page to see who we have ready to come home with you!
+                        All of our pups come vaccinated with papers and potentially breeding rights.</p>
+                </div> 
+              <a class="btn btn-theme mb-5 shadow-none" data-toggle="collapse" href="#puppyButton" role="button" aria-expanded="false" aria-controls="collapseExample"> 
+              Check Puppy Availability
+            </a>
+            <div class="collapse" id="puppyButton">
+                <table class="table mb-5">   
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Sex</th>
+                            <th>Availability</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><img src="images/bluepaws.png" class="mobile-fix" alt="blue paws"> Bubba</td>
+                            <td>Male</td>
+                            <td>Available!</td>
+                            <td colspan="1"><img class="image" src="images/puppy_profiles/Bubba.png" alt="Bubba"></td>
+                        </tr>
+                        <tr>
+                            <td> <img src="images/pinkpaws.png" class="mobile-fix" alt="pink paws"> Angel</td>
+                            <td>Female</td>
+                            <td>Home Found</td>
+                            <td colspan="1"><img class="image" src="images/puppy_profiles/redgirl.png" alt="red girl"></td>
+                        </tr>
+
+                        <tr>
+                            <td><img src="images/pinkpaws.png" class="mobile-fix" alt="pink paws">Brindle Girl</td>
+                            <td>Female</td>
+                            <td>Home Found</td>
+                            <td colspan="1"><img class="image" src="images/puppy_profiles/brindlegirl.png" alt="brindle girl"></td>
+                        </tr>
+
+                        
+                        <tr>
+                            <td><img src="images/pinkpaws.png" class="mobile-fix" alt="pink paws">Remington</td>
+                            <td>Female</td>
+                            <td>Home Found</td>
+                            <td colspan="1"><img class="image" src="images/puppy_profiles/Remi.png" alt="Remi"></td>   
+                        </tr>
+                    </tbody>
+
+                </table>
+              </div>
+            </section>
+
+            <section class="container">
+                
+                    <h1>Gallery</h1>
+                    <div id="puppiesCarousel" class="carousel slide mt-5" data-ride="carousel">
+                        
+                        <div class="carousel-inner">
+                          <div class="carousel-item active">
+                            <img class="d-block w-100" src="images/carousel/christmasremi.png" alt="remi stocking">
+                          </div>
+                          <div class="carousel-item">
+                            <img class="d-block w-100" src="images/carousel/christmas.png" alt="christmas 2019">
+                          </div>
+                          <div class="carousel-item">
+                            <img class="d-block w-100" src="images/carousel/Remi.png" alt="remi">
+                          </div>
+                          <div class="carousel-item">
+                            <img class="d-block w-100" src="images/carousel/redgirl.png" alt="red girl">
+                          </div>
+                          <div class="carousel-item">
+                            <img class="d-block w-100" src="images/carousel/Bubba.png" alt="Bubba">
+                          </div>
+                          <div class="carousel-item">
+                            <img class="d-block w-100" src="images/carousel/brindlegirl.png" alt="Brindle Girl">
+                          </div>
+                          <div class="carousel-item">
+                            <img class="d-block w-100" src="images/carousel/redgirl(2).png" alt="Two Puppies">
+                          </div>
+                          <div class="carousel-item">
+                            <img class="d-block w-100" src="images/carousel/christmas(2).png" alt="Third slide">
+                          </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#puppiesCarousel" role="button" data-slide="prev">
+                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                          <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#puppiesCarousel" role="button" data-slide="next">
+                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                          <span class="sr-only">Next</span>
+                        </a>
+                      
+                    </div>
+                
+            </section>
+        </main>
+
+        <footer class="bg-dark" id="contact">
+            <p>
+                Contact Us! <br>
+                Email: <a href="mailto:fakeemail@gmail.com">fakeemail@gmail.com</a> <br>
+                Telephone: <a href="tel:10000000000">10000000000</a>
+
+            </p>
+            <a class="m-2" href="https://facebook.com" target="_BLANK"><img src="images/facebook-logo.png" alt="facebook logo"></a>
+            <a href="https://twitter.com" target="_BLANK"><img src="images/twitter-logo.png" alt="twitter logo"></a> <br><br>
+            <p>&copy; Copyright 2021. All Rights Reserved.</p>
+        </footer>
+    </body>
+</html>
