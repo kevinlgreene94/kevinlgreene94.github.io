@@ -1,0 +1,120 @@
+
+
+html{
+    cursor: $pawcursor, auto;
+}
+
+video{
+    margin-bottom: 10px;
+}
+
+.jumbotron{
+    background-image:radial-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, .5)), url(../images/christmas.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 600px;
+    font-size: xx-large;
+    margin: 0;
+}
+
+
+.navbar-nav{
+   display: table;
+   width: 100%;
+   margin: 0;
+   color: $header-color;
+
+   &li{
+       float: none;
+       display: table-cell;
+       text-align: center;
+   }
+}
+
+.table{
+   color: $header-color;
+   font-size: x-large;
+}
+
+.image {
+    transition: transform .1s;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    border-radius: 15px;
+    z-index: -1;
+    
+    &:hover{
+   transform: scale(2);
+   
+}
+}
+.carousel-item>img{
+    border-radius: 15px;
+}
+
+.btn-theme{
+    color: $header-color;
+    background-color: $color-main;
+    border: 1px solid $header-color;
+    
+
+    &:hover{
+        background-color: $header-color;
+        color: $color-main;
+        border: 1px solid $color-main;
+    }
+
+    &:active{
+        background-color: $header-color;
+        color: $color-main;
+        border: 1px solid $color-main; 
+    }
+
+    &:visited{
+        background-color: $header-color;
+        color: $color-main;
+        border: 1px solid $color-main; 
+    }
+}
+
+
+
+
+
+
+
+/*Desktop*/
+
+@media only screen and (max-width: 641px){
+   .jumbotron {
+     background-image: url(../images/Remi.png);
+     background-repeat: no-repeat;
+     height: 600px;
+     background-size: cover;
+     font-size: larger;
+   }
+
+   .navbar{
+       display: block;
+
+   }
+
+   video{
+       height: 426px;
+       width: 240px;
+   }
+
+   .table{
+       font-size: medium;
+   }
+
+   .image{
+       display: none;
+   }
+
+   .mobile-fix{
+       width: 15px;
+       height: auto;
+   }
+}

@@ -1,0 +1,52 @@
+body{
+    background-color: $color-main;
+    font: $header-font;
+    color: $header-color;
+    margin: 0;
+}
+
+
+
+nav{
+    background-color: $header-color;
+    margin-top: 0;
+    width: 100%;
+
+    ul li{
+        font-size: larger;
+        list-style-type: none;
+        padding: 4px;
+        a{
+            color: $color-main;
+        }
+
+        &:hover{
+            background-color: $color-main;
+            a{
+                color: $header-color;
+            }
+        }
+        
+        
+    }
+}
+main{
+    margin-left:auto;
+    margin-right: auto;
+    
+    padding: 5ch;
+}
+
+p{
+    font-size: larger;
+    a{
+    color: $header-color;
+    }
+}
+
+ footer{
+     font-size: larger;
+     text-align: center;
+     padding: 15px;
+     margin-bottom: 0;
+ }
