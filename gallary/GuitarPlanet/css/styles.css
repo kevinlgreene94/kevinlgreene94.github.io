@@ -133,6 +133,16 @@ footer div a:hover{
     }
 
     body{
-        background-color:rgba(255, 209, 59, 0.7); ;
+        background-color:rgba(255, 209, 59, 0.7); 
+        height: auto;
+        position: relative;
+    }
+    form{
+        margin-bottom: 10px;
+        position: relative;
+    }
+
+    footer img{
+        width: 5%;
     }
 }
