@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<!--#Original Author: Kevin Greene #
+#Date Created: 1/29/2021 #
+#Version:  1 #
+#Date Last Modified: 1/29/2021 #
+#Modified by:  Kevin Greene #
+#Modification log: 1/29/2021  #Created contact page and copied html from index
+                              #****Added inline style to footer for this page only. Footer position necessary****
+                              
+    -->
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="GuitarPlanet Newsletter">
+        <meta name="keywords" content="guitarplanet, guitar newsletter, news, famous guitar">
+        <meta name="author" content="Kevin Greene">
+        <meta name="viewport" content="width=device-width initial scale=1.0">
+        <title>GuitarPlanet&#x1f3b8;</title>
+
+        <!--Stylesheet Links-->
+        <link rel="stylesheet" href="css/styles.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@300&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <header class="lighttheme">
+        <h1>Welcome to GuitarPlanet</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#news">News</a></li>
+                <li><a href="#join">Join</a></li>
+                <li><a href="FAQ.html">FAQ's</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+        </header>
+
+     <main>
+
+
+         <!--Create Form for Contact Page-->
+            <div class="lighttheme letterdiv" id="join">
+                <form id="contact_form" name="contact_form" action="join.html" method="get">
+                    <h1>Got some feedback?</h1>
+
+                    <label for="nameBox">What's your name?</label>
+                    <input id="nameBox" type="text" name="nameBox"> <br>
+                    <span id="name_error"></span> <br>
+
+                    <label>What's the reason for your contact? &nbsp;</label>
+
+                    <input name="contact" type="radio" id="question" value="question" checked="true">
+                    <label for="#question">Question &nbsp;</label>
+
+                    <input name="contact" type="radio" id="issue" value="issue">
+                    <label for="#issue">Issue with website &nbsp;</label>
+
+                    <input name="contact" type="radio" id="complaint" value="complaint">
+                    <label for="complaint">Complaint &nbsp;</label>
+
+                    <input name="contact" type="radio" id="other" value="other">
+                    <label for="#other">Other &nbsp;</label><br> <br>
+                    
+
+                    <label for="#comment">Comment:</label>
+                    <textarea id="comment"></textarea> <br>
+                    <span id="comment_error"></span> <br>
+
+                    <input type="button" id="submit" value="Submit">
+                    <input type="button" id="clear" value="Clear Form">
+                </form>
+            </div>
+     </main>
+
+     <!--link to javascript file-->
+     <script src="js/contact.js"></script>
+
+
+        <footer class="lighttheme" style="position: fixed;">
+            <p>
+                <div>
+                    <a href="mailto:guitarplanet@fake.com">Email: guitarplanet@fake.com</a> <br>
+                    <a href="Tel:18005551234">Telephone: 1(800)555-1234</a> <br>
+                </div>
+                GuitarPlanet Copyright &copy; <br>
+                <a href="instagram.com"><img src="images/instagram.png" alt="instagram icon"></a>
+                <a href="twitter.com"><img src="images/twitter.png" alt="twitter icon"></a>
+            </p>
+        </footer>
+    </body>
+</html>
