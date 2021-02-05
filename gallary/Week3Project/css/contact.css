@@ -1,0 +1,23 @@
+/*********************************************************************
+***
+*Original Author: Kevin Greene *
+*Date Created: 1/29/2021 *
+*Version: 1 *
+*Date Last Modified: 1/29/2021 *
+*Modified by: Kevin Greene *
+*Modification log: *Created css to fix footer in mobile.
+                   *Only page with footer issues
+***
+******************************************************************** */
+
+/*Individual stylings*/
+footer{
+    position: fixed;
+}
+
+@media only screen and (max-width: 700px){
+   footer{
+       position: relative;
+       bottom: 0;
+   }
+}
