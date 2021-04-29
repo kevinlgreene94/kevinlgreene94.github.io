@@ -1,1 +1,0 @@
-create gradient_practice folder
