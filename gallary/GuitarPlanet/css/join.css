@@ -1,0 +1,16 @@
+/*********************************************************************
+***
+*Original Author: Kevin Greene *
+*Date Created: 2/17/2021 *
+*Version: 1 *
+*Date Last Modified: 2/17/2021 *
+*Modified by: Kevin Greene *
+*Modification log: *Created css for join to improve mobile view
+***
+******************************************************************** */
+@media only screen and (max-width: 700px){
+    p img{
+        width: 60%;
+        height: auto;
+    }
+}
