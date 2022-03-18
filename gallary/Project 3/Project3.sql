@@ -7,8 +7,9 @@
 *															 *
 * 3/11/2022 KGreene			Added data to disk_type,		 *
 *	disk_genre, disk_status, borrower, disk_table, and		 *
-*	disk_has_borrower										 *
-*															 *
+*	disk_has_borrower
+*
+* 3/18/22 KGreene			Added project 4 code			 *
 *************************************************************/
 
 use master;
@@ -67,7 +68,9 @@ CREATE TABLE disk_genre (
 	return_date					DATETIME2 NULL
  );
 
- --NEW CODE--
+/*******************************
+	NEW CODE 03/11/2022
+********************************/
 
  --Insert new disk types
  INSERT dbo.disk_type
@@ -180,7 +183,7 @@ VALUES
 	(12, 6, '2018-01-12', '2019-01-20'),
 	(5, 9, '2021-06-12', '2021-11-20'),
 	(6, 10, '2021-03-12', '2021-04-18'),
-	(1, 7, '2022-03-10', NULL),
+	(17, 7, '2022-03-10', NULL),
 	(13, 2, '2022-03-09', NULL),
 	(16, 15, '2021-08-22', '2021-09-20'),
 	(4, 6, '2021-11-12', '2021-12-20'),
@@ -193,3 +196,74 @@ GO
 
 SELECT * FROM disk_has_borrower
 WHERE return_date IS NULL;
+
+/*******************************
+	NEW CODE 03/18/2022
+********************************/
+--Show all disks in database with release date, disk type, disk genre, disk status
+
+SELECT 'Disk Name'=disk_name, release_date AS 'Release Date' , disk_type.descrip AS 'Disk Type', disk_genre.descrip AS 'Disk Genre', disk_status.descrip AS 'Disk Status'
+FROM disk_table
+JOIN disk_type
+ON disk_table.disk_type_id = disk_type.disk_type_id
+JOIN disk_genre 
+ON disk_table.genre_id = disk_genre.genre_id
+JOIN disk_status
+ON disk_table.status_id = disk_status.status_id
+ORDER BY disk_name;
+GO
+
+--Show all borrowed disks
+SELECT lname, fname, disk_name, borrow_date, return_date
+FROM disk_has_borrower
+JOIN Borrower
+	ON disk_has_borrower.borrower_id = borrower.borrower_id
+JOIN disk_table
+	ON disk_has_borrower.disk_id = disk_table.disk_id
+ORDER BY lname;
+GO
+
+--Show disks that have been borrowed more than once
+SELECT disk_name, count(*)
+FROM disk_has_borrower
+JOIN disk_table
+ON disk_has_borrower.disk_id = disk_table.disk_id
+GROUP BY disk_name
+HAVING COUNT(*) > 1
+ORDER BY disk_name;
+GO
+
+--Show disks outstanding or on-loan
+SELECT disk_name, borrow_date, return_date, lname, fname
+FROM disk_has_borrower
+JOIN borrower ON disk_has_borrower.borrower_id = borrower.borrower_id
+JOIN disk_table ON disk_has_borrower.disk_id = disk_table.disk_id
+WHERE return_date IS NULL
+ORDER BY disk_name;
+GO
+
+--Create view for borrowers who have not borrowed a disk.
+DROP VIEW IF EXISTS View_Borrower_No_Loans;
+GO
+CREATE VIEW View_Borrower_No_Loans
+AS
+SELECT borrower_id, lname, fname
+FROM borrower 
+WHERE borrower_id NOT IN (
+SELECT DISTINCT borrower_id
+FROM disk_has_borrower)
+
+GO
+SELECT lname, fname
+FROM View_Borrower_No_Loans
+ORDER BY lname, fname;
+GO
+
+--Show borrowers with more than 1 borrow
+SELECT lname, fname, count(disk_id) AS times_borrowed
+FROM disk_has_borrower
+JOIN borrower ON disk_has_borrower.borrower_id = borrower.borrower_id
+GROUP BY lname, fname
+HAVING count(*) > 1
+ORDER BY lname, fname 
+GO
