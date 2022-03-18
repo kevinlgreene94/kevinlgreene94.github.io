@@ -1,16 +1,23 @@
-/*************************************************************
-* Date		Programmer		Description						 *
-*															 *
-* 3/4/2022	KGreene			Initial creation of disk database*
-*															 *							
-* 3/10/2022 KGreene			Additional notation	added		 *
-*															 *
-* 3/11/2022 KGreene			Added data to disk_type,		 *
-*	disk_genre, disk_status, borrower, disk_table, and		 *
-*	disk_has_borrower
-*
-* 3/18/22 KGreene			Added project 4 code			 *
-*************************************************************/
+/*********************************************************************
+* Date		Programmer		Description								 *
+*																	 *
+* 3/4/2022	KGreene			Initial creation of disk database		 *
+*																	 *							
+* 3/10/2022 KGreene			Additional notation	added				 *
+*																	 *
+* 3/11/2022 KGreene			Added data to disk_type,				 *
+*	disk_genre, disk_status, borrower, disk_table, and				 *
+*	disk_has_borrower												 *
+*																	 *
+* 3/18/22 KGreene			Showed all borrowed disks				 *
+*							Showed all disks in database			 *
+*							Showed disks without borrowers			 *
+*							Showed disks on outstanding loan		 *
+*							Showed disks borrowed more than once	 *
+*							Created view for borrowers who never	 *
+*							borrowed a disk							 *
+*							Showed borrowers with more than one disk *
+**********************************************************************/
 
 use master;
 go
