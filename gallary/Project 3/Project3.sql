@@ -317,12 +317,22 @@ GO
 CREATE PROC sp_upd_disk_has_borrower
 	@disk_has_borrower_id int, @borrower_id int, @disk_id int, @borrow_date datetime2, @return_date datetime2 = NULL
 AS
-UPDATE disk_has_borrower
-	SET borrower_id = @borrower_id,
-		disk_id = @disk_id,
-		borrow_date = @borrow_date,
-		return_date = @return_date
-	WHERE disk_has_borrower_id = @disk_has_borrower_id;
+BEGIN TRY
+	UPDATE disk_has_borrower
+		SET borrower_id = @borrower_id,
+			disk_id = @disk_id,
+			borrow_date = @borrow_date,
+			return_date = @return_date
+		WHERE disk_has_borrower_id = @disk_has_borrower_id;
+END TRY
+BEGIN CATCH
+	PRINT 'An error occurred.';
+	PRINT 'Message: ' + CONVERT(varchar, ERROR_MESSAGE());
+END CATCH
 GO
 sp_upd_disk_has_borrower 22, 2, 3, '3-01-2022', '3-28-2022';
+GO
+sp_upd_disk_has_borrower 22, 2, 3, '3-01-2022';
+GO
+sp_upd_disk_has_borrower 44, 2, 3, '3-01-2022';
 GO
