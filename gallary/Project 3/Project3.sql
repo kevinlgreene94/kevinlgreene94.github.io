@@ -17,6 +17,10 @@
 *							Created view for borrowers who never	 *
 *							borrowed a disk							 *
 *							Showed borrowers with more than one disk *
+*																	 *
+* 3/28/2022 KGreene			Created procedures for CH15 Lab			 *
+*																	 *
+*																	 *
 **********************************************************************/
 
 use master;
@@ -273,4 +277,52 @@ JOIN borrower ON disk_has_borrower.borrower_id = borrower.borrower_id
 GROUP BY lname, fname
 HAVING count(*) > 1
 ORDER BY lname, fname 
+GO
+
+--WK5 Day 1 Lab - CH15
+
+USE disk_inventorykg;
+GO
+
+DROP PROC IF EXISTS sp_ins_disk_has_borrower;
+GO
+
+CREATE PROC sp_ins_disk_has_borrower
+	@borrower_id int, @disk_id int, @borrow_date datetime2, @return_date datetime2 = NULL
+AS
+BEGIN TRY
+	INSERT disk_has_borrower
+		(disk_id, borrower_id, borrow_date, return_date)
+	VALUES
+		(@borrower_id, @disk_id, @borrow_date, @return_date);
+END TRY
+BEGIN CATCH
+	PRINT 'An error occured.';
+	PRINT 'Message: ' + CONVERT(VARCHAR(200), ERROR_MESSAGE());
+END CATCH
+GO
+GRANT EXEC ON sp_ins_disk_has_borrower TO diskUserkg;
+GO
+
+sp_ins_disk_has_borrower 2, 3, '3-27-2022', '3-28-2022'; -- 1 row affected
+GO
+sp_ins_disk_has_borrower 4, 6, '3-27-2022'; -- 1 row affected
+GO
+sp_ins_disk_has_borrower 44, 5, '3-27-2022'; -- 0 rows affected
+GO
+
+DROP PROC IF EXISTS sp_upd_disk_has_borrower;
+GO
+
+CREATE PROC sp_upd_disk_has_borrower
+	@disk_has_borrower_id int, @borrower_id int, @disk_id int, @borrow_date datetime2, @return_date datetime2 = NULL
+AS
+UPDATE disk_has_borrower
+	SET borrower_id = @borrower_id,
+		disk_id = @disk_id,
+		borrow_date = @borrow_date,
+		return_date = @return_date
+	WHERE disk_has_borrower_id = @disk_has_borrower_id;
+GO
+sp_upd_disk_has_borrower 22, 2, 3, '3-01-2022', '3-28-2022';
 GO
