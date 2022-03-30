@@ -20,6 +20,8 @@
 *																	 *
 * 3/28/2022 KGreene			Created procedures for CH15 Lab			 *
 *																	 *
+* 3/30/2022 KGreene			Create INSERT, UPDATE and DELETE		 *
+*							procedures for borrower and disk tables  *
 *																	 *
 **********************************************************************/
 
@@ -279,8 +281,9 @@ HAVING count(*) > 1
 ORDER BY lname, fname 
 GO
 
---WK5 Day 1 Lab - CH15
-
+/*******************************
+	NEW CODE 03/28/2022
+********************************/
 USE disk_inventorykg;
 GO
 
@@ -335,4 +338,127 @@ GO
 sp_upd_disk_has_borrower 22, 2, 3, '3-01-2022';
 GO
 sp_upd_disk_has_borrower 44, 2, 3, '3-01-2022';
+GO
+
+--Push to GitHub
+/*******************************
+	NEW CODE 03/30/2022
+********************************/
+DROP PROC IF EXISTS sp_ins_disk;
+GO
+CREATE PROC sp_ins_disk
+	@disk_name NVARCHAR(60), @release_date DATE, @genre_id INT, @status_id INT, @disk_type_id INT
+AS
+	BEGIN TRY
+		INSERT disk_table
+			(disk_name, release_date, genre_id, status_id, disk_type_id)
+		Values
+			(@disk_name, @release_date, @genre_id, @status_id, @disk_type_id);
+	END TRY
+	BEGIN CATCH
+	PRINT 'An error occurred.';
+	PRINT 'Message: ' + CONVERT(varchar(200), ERROR_MESSAGE());
+	END CATCH
+GO
+GRANT EXECUTE ON sp_ins_disk TO diskUserkg;
+GO
+EXEC sp_ins_disk 'Cowboy Tears', '2/2/2022', 1, 4, 1; --Completes Successfully
+EXEC sp_ins_disk 'Cowboy Tears', '2/2/2022', 1, 4, NULL; -- Error Message
+GO
+
+DROP PROC IF EXISTS sp_upd_disk;
+GO
+CREATE PROC sp_upd_disk
+	@disk_name NVARCHAR(60), @release_date DATE, @genre_id INT, @status_id INT, @disk_type_id INT
+AS
+BEGIN TRY
+	UPDATE disk_table
+		SET disk_name = @disk_name
+		, release_date = @release_date
+		, genre_id = @genre_id
+		, status_id = @status_id
+		, disk_type_id = @disk_type_id
+		WHERE disk_id = 21;
+END TRY
+BEGIN CATCH
+	PRINT 'An error occurred.';
+	PRINT 'Message: ' + CONVERT(varchar(200), ERROR_MESSAGE());
+END CATCH
+GO
+GRANT EXECUTE ON sp_upd_disk TO diskUserkg;
+GO
+EXEC sp_upd_disk 'Ugly is Beautiful', '3/5/2021', 1, 4, 1; --Completes successfully
+GO
+EXEC sp_upd_disk 'Ugly is Beautiful', '3/5/2021', 1, 4, NULL; -- Error Thrown
+GO
+
+DROP PROC IF EXISTS sp_delete_disk;
+GO
+CREATE PROC sp_delete_disk
+AS
+
+DELETE FROM [dbo].[disk_table]
+      WHERE disk_id = 21
+GO
+
+EXEC sp_delete_disk;
+GO
+
+DROP PROC IF EXISTS sp_ins_borrower;
+GO
+CREATE PROC sp_ins_borrower
+	@fname NVARCHAR(60), @lname NVARCHAR(60), @phone_num varchar(15)
+AS
+	BEGIN TRY
+		INSERT borrower
+			(fname, lname, phone_num)
+		Values
+			(@fname, @lname, @phone_num);
+	END TRY
+	BEGIN CATCH
+	PRINT 'An error occurred.';
+	PRINT 'Message: ' + CONVERT(varchar(200), ERROR_MESSAGE());
+	END CATCH
+GO
+GRANT EXECUTE ON sp_ins_borrower TO diskUserkg;
+GO
+EXEC sp_ins_borrower 'John', 'Wayne', '212-557-8334'; --Completes Successfully
+EXEC sp_ins_borrower 'John', 'Wayne', NULL; -- Error Message
+GO
+
+DROP PROC IF EXISTS sp_upd_borrower;
+GO
+CREATE PROC sp_upd_borrower
+	@fname NVARCHAR(60), @lname NVARCHAR(60), @phone_num varchar(15)
+AS
+BEGIN TRY
+	UPDATE borrower
+		SET fname = @fname
+		, lname = @lname
+		, phone_num = @phone_num
+		WHERE borrower_id = 22;
+END TRY
+BEGIN CATCH
+	PRINT 'An error occurred.';
+	PRINT 'Message: ' + CONVERT(varchar(200), ERROR_MESSAGE());
+END CATCH
+GO
+GRANT EXECUTE ON sp_upd_borrower TO diskUserkg;
+GO
+EXEC sp_upd_borrower 'Clint', 'Eastwood', '861-334-8989'; --Completes successfully
+GO
+EXEC sp_upd_borrower 'Clint', 'Eastwood', NULL; -- Error Thrown
+GO
+
+DROP PROC IF EXISTS sp_delete_borrower;
+GO
+CREATE PROC sp_delete_borrower
+AS
+
+DELETE FROM [dbo].[borrower]
+      WHERE borrower_id = 22
+GO
+
+
+EXEC sp_delete_borrower;
 GO
